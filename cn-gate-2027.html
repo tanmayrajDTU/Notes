@@ -200,6 +200,9 @@ body[data-tier-view="core"] h2[data-tier="hy"],body[data-tier-view="core"] .tier
 body.rapid-mode .tier-legend{display:none}
 </style>
 <style>@media(max-width:760px){main table{display:block;overflow-x:auto;max-width:100%}main pre{overflow-x:auto;max-width:100%}}</style><style id="ux-fix-v11">
+html,body{height:auto!important;min-height:100%}
+#navScrim{cursor:pointer;-webkit-tap-highlight-color:transparent}
+
 /* v11: no sticky banners in the reading/quiz flow; tap-outside closes the topics drawer */
 .qtopics{position:static!important;top:auto!important}
 body.rapid-mode .hy-toolbar{position:static!important;top:auto!important}
@@ -207,6 +210,16 @@ body.rapid-mode .hy-toolbar{position:static!important;top:auto!important}
 @media (max-width:860px){
   body.nav-open #navScrim{display:block;position:fixed;left:0;right:0;bottom:0;top:calc(58px + env(safe-area-inset-top,0px));background:rgba(0,0,0,.45);z-index:14}
 }
+@media (max-width:860px){
+  header{position:static!important}
+  html{scroll-padding-top:12px!important}
+  nav#side{top:0!important;height:100%!important;padding-top:calc(18px + env(safe-area-inset-top,0px))!important}
+  body.nav-open #navScrim{top:0!important}
+  #navFab{position:fixed;left:12px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:16;width:42px;height:42px;border-radius:50%;
+    border:1px solid var(--border);background:rgba(23,28,40,.92);color:var(--text);font-size:19px;line-height:1;opacity:.9;
+    box-shadow:0 2px 10px rgba(0,0,0,.45);cursor:pointer;-webkit-tap-highlight-color:transparent}
+}
+@media (min-width:861px){#navFab{display:none}}
 </style>
 </head>
 <body>
@@ -1820,16 +1833,23 @@ render();
 (function(){
   var nav=document.getElementById('side'); if(!nav) return;
   var scrim=document.createElement('div'); scrim.id='navScrim'; document.body.appendChild(scrim);
+  var fab=document.createElement('button'); fab.id='navFab'; fab.type='button'; fab.setAttribute('aria-label','Topics'); fab.textContent='\u2630';
+  fab.addEventListener('click',function(){ nav.classList.toggle('open'); });
+  document.body.appendChild(fab);
   function sync(){ document.body.classList.toggle('nav-open', nav.classList.contains('open')); }
   new MutationObserver(sync).observe(nav,{attributes:true,attributeFilter:['class']});
   function close(){ nav.classList.remove('open'); }
-  document.addEventListener('click',function(e){
+  function outside(e){
     if(!nav.classList.contains('open')) return;
-    if(e.target.closest('#menuBtn')) return;           // button handles its own toggle
-    if(!e.target.closest('#side') || e.target.closest('#side a')) close();
-  });
+    var t=e.target; if(!t||!t.closest) return;
+    if(t.closest('#menuBtn')||t.closest('#navFab')) return;                  // button handles its own toggle
+    if(!t.closest('#side') || (e.type==='click' && t.closest('#side a'))) close();
+  }
+  document.addEventListener('pointerdown',outside,true);
+  document.addEventListener('touchstart',outside,{capture:true,passive:true});
+  document.addEventListener('click',outside,true);
+  scrim.addEventListener('click',close);
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
-  window.addEventListener('scroll',function(){ if(nav.classList.contains('open') && window.innerWidth<=860) close(); },{passive:true});
 })();
 </script>
 </body>
