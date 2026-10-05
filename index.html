@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GATE CSE 2027 — Study Hub</title>
+<style>
+:root{
+  --bg:#0b0e14; --panel:#12161f; --panel2:#181d29; --border:#242b3a;
+  --text:#e6e9f0; --muted:#93a0b8; --accent:#5ee6c8; --accent2:#7c9fff;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box}
+html{height:100%}
+body{
+  margin:0;min-height:100%;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.55;
+}
+header{
+  padding:calc(28px + env(safe-area-inset-top,0px)) 20px 10px;
+  text-align:center;border-bottom:1px solid var(--border);
+}
+header h1{margin:0 0 6px;font-size:24px}
+header h1 span{color:var(--accent)}
+header p{color:var(--muted);margin:0 0 20px;font-size:14px}
+main{max-width:900px;margin:0 auto;padding:28px 20px 60px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+a.card{
+  display:block;background:var(--panel);border:1px solid var(--border);border-radius:14px;
+  padding:22px 20px;text-decoration:none;color:var(--text);transition:border-color .15s,transform .15s;
+}
+a.card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.card .icon{font-size:30px;margin-bottom:10px;display:block}
+.card h2{margin:0 0 6px;font-size:17px;color:var(--accent2)}
+.card p{margin:0 0 12px;color:var(--muted);font-size:13px;line-height:1.5}
+.card .tags{display:flex;flex-wrap:wrap;gap:6px}
+.card .tags span{background:var(--panel2);border:1px solid var(--border);border-radius:999px;
+  padding:3px 9px;font-size:11px;color:var(--muted)}
+footer{text-align:center;color:var(--muted);font-size:12.5px;padding:20px;border-top:1px solid var(--border)}
+@media (prefers-color-scheme: light){ :root:not([data-theme="dark"]){ } }
+
+/* Second-pass curated high-yield revision layer */
+.rapid-curated{margin:18px 0 28px;padding:20px;border:1px solid var(--border,#334155);border-radius:16px;background:rgba(15,23,42,.45)}
+.rapid-curated>h2{margin:0 0 4px}.rapid-note{margin:0 0 16px;opacity:.72}
+.rapid-group{margin:14px 0;padding:14px 16px;border-radius:12px;border-left:4px solid #64748b;background:rgba(255,255,255,.025)}
+.rapid-group h3{margin:0 0 8px;font-size:1rem}.rapid-group ul{margin:0;padding-left:20px}.rapid-group li{margin:7px 0;line-height:1.55}
+.rapid-group.must{border-left-color:#22c55e}.rapid-group.trap{border-left-color:#eab308}.rapid-group.formula{border-left-color:#38bdf8}.rapid-group.gate{border-left-color:#f97316}.rapid-group.shortcut{border-left-color:#a78bfa}
+@media(max-width:700px){.rapid-curated{padding:14px}.rapid-group{padding:12px}}
+@media (max-width:640px){table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}.card,.num,.warn,p,li{overflow-wrap:break-word}td,th{overflow-wrap:normal;word-break:normal}}
+</style>
+</head>
+<body>
+<header>
+  <h1>🎓 GATE CSE 2027 <span>Study Hub</span></h1>
+  <p>Quick-revision notes for GATE CSE 2027 — high-yield facts, traps, formulas, worked numericals, and subject practice. Each subject also has a <b>⚡ Last-Minute Revision</b> mode.</p>
+</header>
+<main>
+<div class="grid">
+      <a class="card" href="ga-gate-2027.html">
+    <span class="icon">🧠</span>
+    <h2>General Aptitude</h2>
+    <p>Verbal aptitude (incl. critical reasoning), numerical computation (number system, mixtures, clocks &amp; calendars), data interpretation, mensuration/geometry/probability, analytical aptitude (seating, truth-tellers), spatial aptitude (counting, dice).</p>
+    <div class="tags"><span>6 areas</span><span>99 Qs</span><span>27 solved</span></div>
+  </a>
+      <a class="card" href="em-gate-2027.html">
+    <span class="icon">📐</span>
+    <h2>Engineering Mathematics</h2>
+    <p>Linear algebra, calculus, probability &amp; statistics, with 🟢 core / 🟡 extension tagging. Discrete mathematics is its own module (linked from the page).</p>
+    <div class="tags"><span>3 areas</span><span>58 Qs</span><span>18 solved</span></div>
+  </a>
+<a class="card" href="discrete-math-gate-2027.html">
+    <span class="icon">∑</span>
+    <h2>Discrete Mathematics</h2>
+    <p>Logic, sets &amp; relations, functions, partial orders &amp; lattices, algebraic structures, combinatorics, recurrence relations, generating functions and graph theory.</p>
+    <div class="tags"><span>8 topics</span><span>90 Qs</span><span>35 solved</span></div>
+  </a>
+  <a class="card" href="dl-gate-2027.html">
+    <span class="icon">🔌</span>
+    <h2>Digital Logic</h2>
+    <p>Number systems &amp; IEEE 754, Boolean algebra, K-maps, adders/MUX/decoders, flip-flops, counters, state machines, ROM/PLA, BCD &amp; Hamming codes.</p>
+    <div class="tags"><span>9 topics</span><span>68 Qs</span><span>18 solved</span></div>
+  </a>
+
+  <a class="card" href="coa-gate-2027.html">
+    <span class="icon">⚙️</span>
+    <h2>Computer Organization &amp; Architecture</h2>
+    <p>Number systems, instruction sets &amp; addressing modes, ALU, control unit, memory hierarchy &amp; cache, I/O, pipelining.</p>
+    <div class="tags"><span>7 topics</span><span>58 Qs</span><span>19 solved</span></div>
+  </a>
+  <a class="card" href="pds-gate-2027.html">
+    <span class="icon">💻</span>
+    <h2>Programming &amp; Data Structures</h2>
+    <p>C semantics, pointers &amp; memory, recursion, stacks &amp; queues, linked lists, trees/BST/AVL, heaps, hashing and graph representation.</p>
+    <div class="tags"><span>7 topics</span><span>58 Qs</span><span>17 solved</span></div>
+  </a>
+  <a class="card" href="alg-gate-2027.html">
+    <span class="icon">⚙️</span>
+    <h2>Algorithms</h2>
+    <p>Asymptotics &amp; recurrences, sorting &amp; searching, divide &amp; conquer, greedy, dynamic programming, graph algorithms, amortized analysis and NP-completeness.</p>
+    <div class="tags"><span>7 topics</span><span>58 Qs</span><span>18 solved</span></div>
+  </a>
+  <a class="card" href="os-gate-2027.html">
+    <span class="icon">🖥️</span>
+    <h2>Operating Systems</h2>
+    <p>Processes &amp; threads, CPU scheduling (HRRN, MLFQ), synchronization &amp; IPC, deadlocks, memory &amp; virtual memory (Clock, buddy, inverted tables), file systems, disk &amp; I/O (DMA, spooling).</p>
+    <div class="tags"><span>7 topics</span><span>75 Qs</span><span>24 solved</span></div>
+  </a>
+  <a class="card" href="toc-gate-2027.html">
+    <span class="icon">🔤</span>
+    <h2>Theory of Computation</h2>
+    <p>Finite automata, regular expressions, context-free grammars, pushdown automata, pumping lemma, Turing machines.</p>
+    <div class="tags"><span>6 topics</span><span>80 Qs</span><span>19 solved</span></div>
+  </a>
+  <a class="card" href="cn-gate-2027.html">
+    <span class="icon">🌐</span>
+    <h2>Computer Networks</h2>
+    <p>Layering, switching &amp; performance, data link &amp; MAC, routing (RIP/OSPF/BGP), IPv4 &amp; ARP/DHCP/ICMP, TCP, DNS, HTTP &amp; email.</p>
+    <div class="tags"><span>7 topics</span><span>90 Qs</span><span>23 solved</span></div>
+  </a>
+  <a class="card" href="dbms-gate-2027.html">
+    <span class="icon">🗄️</span>
+    <h2>DBMS</h2>
+    <p>ER model, relational algebra &amp; tuple calculus, SQL, integrity constraints &amp; normal forms, indexing (B/B+ trees), transactions &amp; concurrency control.</p>
+    <div class="tags"><span>6 topics</span><span>82 Qs</span><span>23 solved</span></div>
+  </a>
+  <a class="card" href="cd-gate-2027.html">
+    <span class="icon">🛠️</span>
+    <h2>Compiler Design</h2>
+    <p>Phases &amp; lexical analysis, LL(1) parsing, LR/SLR/LALR/CLR, syntax-directed translation, runtime environments, intermediate code, optimisation &amp; code generation.</p>
+    <div class="tags"><span>7 topics</span><span>56 Qs</span><span>16 solved</span></div>
+  </a>
+</div>
+</main>
+<footer>Keep all twelve subject files in the same folder so these links work — open index.html to start.</footer>
+</body>
+</html>
