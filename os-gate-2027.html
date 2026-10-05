@@ -206,6 +206,15 @@ body.rapid-mode .tier-legend{display:none}
 .gl{font-size:12.5px;color:var(--muted);margin-top:14px}
 svg text{font-family:-apple-system,Segoe UI,Roboto,sans-serif}
 </style>
+<style id="ux-fix-v11">
+/* v11: no sticky banners in the reading/quiz flow; tap-outside closes the topics drawer */
+.qtopics{position:static!important;top:auto!important}
+body.rapid-mode .hy-toolbar{position:static!important;top:auto!important}
+#navScrim{display:none}
+@media (max-width:860px){
+  body.nav-open #navScrim{display:block;position:fixed;left:0;right:0;bottom:0;top:calc(58px + env(safe-area-inset-top,0px));background:rgba(0,0,0,.45);z-index:14}
+}
+</style>
 </head>
 <body>
 <header>
@@ -1965,5 +1974,21 @@ gantt('g3',[['P1',0,4],['P2',4,7],['P3',7,10],['P1',10,14],['P1',14,18],['P1',18
 
 </script>
 <!-- readiness:end -->
+<script id="ux-fix-v11-js">
+(function(){
+  var nav=document.getElementById('side'); if(!nav) return;
+  var scrim=document.createElement('div'); scrim.id='navScrim'; document.body.appendChild(scrim);
+  function sync(){ document.body.classList.toggle('nav-open', nav.classList.contains('open')); }
+  new MutationObserver(sync).observe(nav,{attributes:true,attributeFilter:['class']});
+  function close(){ nav.classList.remove('open'); }
+  document.addEventListener('click',function(e){
+    if(!nav.classList.contains('open')) return;
+    if(e.target.closest('#menuBtn')) return;           // button handles its own toggle
+    if(!e.target.closest('#side') || e.target.closest('#side a')) close();
+  });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+  window.addEventListener('scroll',function(){ if(nav.classList.contains('open') && window.innerWidth<=860) close(); },{passive:true});
+})();
+</script>
 </body>
 </html>
