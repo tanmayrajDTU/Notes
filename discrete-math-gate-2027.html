@@ -8,7 +8,23 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}.top{position:sticky;top:0;z-index:20;background:rgba(11,16,32,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;gap:16px}.top a{color:var(--text);text-decoration:none;border:1px solid var(--border);padding:7px 12px;border-radius:9px}.top h1{font-size:18px;margin:0}.wrap{display:grid;grid-template-columns:270px minmax(0,1fr);max-width:1450px;margin:auto}.side{position:sticky;top:61px;height:calc(100vh - 61px);overflow:auto;border-right:1px solid var(--border);padding:20px}.side a{display:block;color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px}.side a:hover{background:var(--panel);color:var(--text)}main{padding:34px 42px 80px;min-width:0}h2{margin-top:48px;border-bottom:1px solid var(--border);padding-bottom:10px}h3{margin-top:30px}.hero{background:linear-gradient(135deg,#11182b,#18233d);border:1px solid var(--border);padding:28px;border-radius:18px}.hero h2{margin:0 0 8px;border:0}.sub{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}.card{background:var(--panel);border:1px solid var(--border);border-radius:13px;padding:16px}.tag{display:inline-block;font-size:13px;font-weight:700;padding:4px 8px;border-radius:7px;margin-bottom:7px}.must{background:rgba(134,239,172,.12);color:var(--green)}.trap{background:rgba(253,230,138,.12);color:var(--yellow)}.formula{background:rgba(125,211,252,.12);color:var(--accent)}.fav{background:rgba(252,165,165,.12);color:var(--red)}.shortcut{background:rgba(196,181,253,.12);color:var(--purple)}.guide{background:var(--panel);border:1px solid var(--border);border-radius:14px;margin:14px 0;overflow:hidden}.guide summary{cursor:pointer;padding:16px;font-weight:750}.guide .inside{padding:0 16px 16px;border-top:1px solid var(--border)}.method{font-weight:700;color:var(--accent)}table{width:100%;border-collapse:collapse;margin:14px 0}th,td{border:1px solid var(--border);padding:10px;text-align:left;vertical-align:top}th{background:var(--panel2)}code{background:#080d18;border:1px solid var(--border);padding:2px 5px;border-radius:5px;color:#bae6fd}.controls{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.btn{cursor:pointer;background:var(--panel2);color:var(--text);border:1px solid var(--border);padding:10px 14px;border-radius:10px;font-weight:700}.btn.primary{background:#164e63;border-color:#0e7490}.rapid{display:none}.rapid.on{display:block}.full.off{display:none}.notice{padding:13px 15px;border-left:4px solid var(--accent);background:rgba(125,211,252,.07);border-radius:8px;margin:14px 0}.small{font-size:13px;color:var(--muted)}ul{padding-left:22px}.pill{font-size:12px;color:var(--muted);border:1px solid var(--border);padding:3px 7px;border-radius:999px;margin-left:6px}@media(max-width:850px){.wrap{display:block}.side{position:static;height:auto;border-right:0;border-bottom:1px solid var(--border)}main{padding:24px 18px 60px}.top h1{font-size:15px}}
 @media (max-width:640px){table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}.card,.num,.warn,p,li{overflow-wrap:break-word}td,th{overflow-wrap:normal;word-break:normal}}
 </style>
-<style>/*dm-notes-v1*/.ex{background:rgba(251,191,36,.14);color:#fbbf24}.card table{font-size:14px}.card th,.card td{padding:7px}footer{color:var(--muted);text-align:center;padding:26px 16px;border-top:1px solid var(--border);margin-top:40px;font-size:14px}</style></head>
+<style>/*dm-notes-v1*/.ex{background:rgba(251,191,36,.14);color:#fbbf24}.card table{font-size:14px}.card th,.card td{padding:7px}footer{color:var(--muted);text-align:center;padding:26px 16px;border-top:1px solid var(--border);margin-top:40px;font-size:14px}</style><style id="ux-fix-v11">
+/* v11: mobile — header scrolls away, topics become a tap-outside-to-close drawer */
+#navScrim,#navFab{display:none}
+@media (max-width:850px){
+  .top{position:static!important}
+  html{scroll-padding-top:12px}
+  .side{position:fixed!important;left:0;top:0;height:100%!important;width:260px;z-index:15;background:var(--bg);
+    border-right:1px solid var(--border)!important;border-bottom:0!important;padding-top:calc(20px + env(safe-area-inset-top,0px));
+    transform:translateX(-105%);transition:transform .2s;overflow-y:auto}
+  .side.open{transform:translateX(0)}
+  body.nav-open #navScrim{display:block;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:14;cursor:pointer}
+  #navFab{display:block;position:fixed;left:12px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:16;width:42px;height:42px;border-radius:50%;
+    border:1px solid var(--border);background:rgba(23,28,40,.92);color:var(--text);font-size:19px;line-height:1;opacity:.9;
+    box-shadow:0 2px 10px rgba(0,0,0,.45);cursor:pointer;-webkit-tap-highlight-color:transparent}
+}
+</style>
+</head>
 <body>
 <header class="top"><a href="index.html">← Study Hub</a><h1>Discrete Mathematics — GATE CSE 2027</h1></header>
 <div class="wrap">
@@ -1389,4 +1405,26 @@ render();
 
 </script>
 <!-- readiness:end -->
+<script id="ux-fix-v11-js">
+(function(){
+  var nav=document.querySelector('aside.side'); if(!nav) return;
+  var scrim=document.createElement('div'); scrim.id='navScrim'; document.body.appendChild(scrim);
+  var fab=document.createElement('button'); fab.id='navFab'; fab.type='button'; fab.setAttribute('aria-label','Topics'); fab.textContent='\u2630';
+  fab.addEventListener('click',function(){ nav.classList.toggle('open'); });
+  document.body.appendChild(fab);
+  function sync(){ document.body.classList.toggle('nav-open', nav.classList.contains('open')); }
+  new MutationObserver(sync).observe(nav,{attributes:true,attributeFilter:['class']});
+  function close(){ nav.classList.remove('open'); }
+  function outside(e){
+    if(!nav.classList.contains('open')) return;
+    var t=e.target; if(!t||!t.closest) return;
+    if(t.closest('#navFab')) return;
+    if(!t.closest('.side') || (e.type==='click' && t.closest('.side a'))) close();
+  }
+  document.addEventListener('pointerdown',outside,true);
+  document.addEventListener('touchstart',outside,{capture:true,passive:true});
+  document.addEventListener('click',outside,true);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
 </body></html>
