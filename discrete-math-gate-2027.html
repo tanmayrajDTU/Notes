@@ -24,6 +24,108 @@
     box-shadow:0 2px 10px rgba(0,0,0,.45);cursor:pointer;-webkit-tap-highlight-color:transparent}
 }
 </style>
+<style id="fmt-v12">
+/* v12 readability revamp (Discrete Mathematics) — formatting only */
+.card>.tag{display:flex;width:fit-content;max-width:100%;margin:0 0 10px!important}
+.card>.tag+b{display:block;margin:0 0 8px;font-size:16.5px;line-height:1.4}
+.card p{line-height:1.75;margin:0 0 10px;overflow-wrap:anywhere}.card p:last-child{margin-bottom:0}
+.card code{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:bottom;white-space:nowrap;line-height:1.5;margin:2px 0}
+.card td code,.card th code{white-space:normal}
+/* formula that stands alone on a line = block equation */
+.card p>code:only-child,.rapid .card p>code:only-child{display:block;margin:2px 0;padding:10px 12px;border-radius:9px;background:#0a1220;border:1px solid #1d3350;
+  color:#8fd8ff;font-size:14px;line-height:1.65;white-space:pre-wrap;overflow-wrap:anywhere}
+.rapid .card{padding:16px}
+.rapid .grid{display:grid;grid-template-columns:1fr;gap:14px}
+.rapid .tag{margin-bottom:12px}
+@media (max-width:700px){
+  .card{padding:16px!important}
+  section.full>p,section.full>.notice{line-height:1.75}
+  table{display:block;max-width:100%;overflow-x:auto}
+}
+</style>
+<style id="theme-v13">
+/* v13 premium dark + colour theme — visual layer only */
+:root{
+  --bg:#070916;--panel:#0f1330;--panel2:#161b3f;--border:#2a3166;--text:#eef1ff;--muted:#9ea8d4;
+  --accent:#4ff0d0;--accent2:#8aa4ff;--warn:#ffb454;--good:#6ef0a0;--code-bg:#0a1030;
+  --green:#7af0ae;--yellow:#ffe08a;--red:#ff9aa8;--purple:#c9a8ff;
+  --glow-a:#7c5cff;--glow-b:#19d3ff;--glow-c:#ff4fa3;
+}
+html{background:#070916}
+body{background:transparent!important;color:var(--text)}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+   radial-gradient(60% 40% at 8% 0%,rgba(124,92,255,.28),transparent 70%),
+   radial-gradient(50% 35% at 100% 6%,rgba(25,211,255,.18),transparent 70%),
+   radial-gradient(60% 40% at 50% 100%,rgba(255,79,163,.14),transparent 70%),
+   #070916}
+::selection{background:rgba(124,92,255,.55);color:#fff}
+
+/* header */
+header,.top{background:linear-gradient(180deg,rgba(14,18,48,.92),rgba(9,11,30,.86))!important;
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid transparent!important;
+  border-image:linear-gradient(90deg,#7c5cff,#19d3ff,#ff4fa3) 1;box-shadow:0 6px 24px rgba(0,0,0,.35)}
+header h1 span,.top h1 span,header .hl,.top .hl{background:linear-gradient(90deg,#4ff0d0,#8aa4ff,#d28bff);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+
+/* headings */
+main h2,.wrap h2{background:linear-gradient(90deg,#9db4ff,#c9a8ff 55%,#ff9ad0);-webkit-background-clip:text;background-clip:text;color:transparent;
+  border-bottom:1px solid transparent!important;border-image:linear-gradient(90deg,rgba(138,164,255,.6),rgba(255,79,163,.25),transparent) 1}
+main h3{color:#8fe9ff}
+
+/* surfaces: glass panels */
+.card,.warn,.num,.hy-panel,.hy-toolbar,.rapid-curated,table,.q,.qcard,.sol,details,.callout,.box{
+  background:linear-gradient(150deg,rgba(32,38,88,.62),rgba(14,17,42,.9))!important;
+  border-top-color:rgba(138,150,255,.2)!important;border-right-color:rgba(138,150,255,.2)!important;border-bottom-color:rgba(138,150,255,.2)!important;box-shadow:0 10px 30px rgba(3,4,18,.45),inset 0 1px 0 rgba(255,255,255,.06)}
+.hy-toolbar{border-radius:16px}
+.hy-toolbar h3,.hy-toolbar strong{background:linear-gradient(90deg,#4ff0d0,#8aa4ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* nav drawer */
+nav#side,.side{background:linear-gradient(180deg,rgba(18,22,58,.97),rgba(9,11,30,.98))!important;border-color:rgba(138,150,255,.2)!important}
+nav#side a.active,.side a.active,nav#side a:hover,.side a:hover{background:linear-gradient(90deg,rgba(124,92,255,.35),rgba(25,211,255,.14))!important;color:#fff!important;border-radius:10px}
+nav#side .grp,.side .grp,nav#side h4,.side h4{color:#c9a8ff!important}
+
+/* buttons */
+.hy-btn{background:rgba(26,31,72,.9);border-color:rgba(138,150,255,.3)}
+.hy-btn:hover{border-color:#8aa4ff;box-shadow:0 0 0 3px rgba(124,92,255,.22);color:#fff}
+.hy-btn.primary,.btn.primary,button.primary{background:linear-gradient(90deg,#19d3ff,#7c5cff 60%,#ff4fa3)!important;color:#fff!important;border:0!important;
+  box-shadow:0 6px 20px rgba(124,92,255,.45)}
+#navFab{background:linear-gradient(135deg,#7c5cff,#19d3ff)!important;color:#fff!important;border:0!important;box-shadow:0 8px 22px rgba(124,92,255,.55)!important;opacity:1!important}
+#menuBtn{background:rgba(26,31,72,.9)!important;border-color:rgba(138,150,255,.35)!important}
+
+/* code & equations */
+code,pre{background:#0a1030!important;color:#8ff5e2;border:1px solid rgba(79,240,208,.18)}
+.rg-eq,.card p>code:only-child{background:linear-gradient(135deg,#0a1436,#0d0f2e)!important;border-color:rgba(25,211,255,.35)!important;color:#9af2ff!important;
+  box-shadow:inset 0 0 0 1px rgba(25,211,255,.06)}
+
+/* last-minute groups: tinted by their colour */
+.rapid-group li{background:linear-gradient(135deg,color-mix(in srgb,var(--gc) 14%,#12163a),#0d1030 70%)!important;border-top-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-right-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-bottom-color:color-mix(in srgb,var(--gc) 30%,#262d62)!important;border-left-color:var(--gc)!important;
+  box-shadow:0 6px 18px rgba(3,4,18,.4)}
+.rapid-group h3{text-shadow:0 0 18px color-mix(in srgb,var(--gc) 55%,transparent)}
+.rapid-group h3 .rg-count{box-shadow:0 0 14px color-mix(in srgb,var(--gc) 60%,transparent)}
+.rapid-jump a{background:rgba(26,31,72,.85);border-color:rgba(138,150,255,.3)}
+.rapid-section h2{background:linear-gradient(90deg,rgba(124,92,255,.28),rgba(25,211,255,.08))!important;-webkit-text-fill-color:#fff;color:#fff;border-image:none!important;
+  border-color:rgba(138,150,255,.3)!important;border-left:4px solid #19d3ff!important}
+
+/* tags / badges: more vivid */
+.tag,.hy-badge,.badge{backdrop-filter:blur(4px);font-weight:800}
+.tag.must,.hy-badge.must{background:rgba(34,197,94,.18)!important;color:#7af0ae!important;border-color:rgba(34,197,94,.5)!important}
+.tag.formula,.hy-badge.formula{background:rgba(56,189,248,.18)!important;color:#8fe0ff!important;border-color:rgba(56,189,248,.5)!important}
+.tag.fav,.hy-badge.fav{background:rgba(255,79,100,.16)!important;color:#ff9aa8!important;border-color:rgba(255,79,100,.5)!important}
+
+/* quiz options */
+.opt,.option,button.opt,label.opt{background:rgba(22,27,68,.8)!important;border-color:rgba(138,150,255,.25)!important;transition:.15s}
+.opt:hover,.option:hover{border-color:#19d3ff!important;box-shadow:0 0 0 3px rgba(25,211,255,.18)}
+.qtopics button,.qtopics .chip{background:rgba(26,31,72,.85);border-color:rgba(138,150,255,.3)}
+.qtopics .on,.qtopics .active{background:linear-gradient(90deg,#7c5cff,#19d3ff)!important;color:#fff!important;border-color:transparent!important}
+
+/* tables */
+th{background:linear-gradient(90deg,rgba(124,92,255,.35),rgba(25,211,255,.18))!important;color:#fff!important}
+td,th{border-color:rgba(138,150,255,.2)!important}
+tbody tr:nth-child(even) td{background:rgba(124,92,255,.06)}
+
+a{color:#8fe9ff}
+::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:linear-gradient(#7c5cff,#19d3ff);border-radius:8px}
+</style>
 </head>
 <body>
 <header class="top"><a href="index.html">← Study Hub</a><h1>Discrete Mathematics — GATE CSE 2027</h1></header>
@@ -1426,5 +1528,11 @@ render();
   document.addEventListener('click',outside,true);
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
 })();
+</script>
+<script id="fmt-v12-js">
+document.querySelectorAll('.card p').forEach(function(p){
+  var c=p.querySelector(':scope>code'); if(!c||p.children.length!==1) return;
+  var n=c.nextSibling; if(n&&n.nodeType===3&&/^\s*[.;,]\s*$/.test(n.textContent)) n.remove();
+});
 </script>
 </body></html>
