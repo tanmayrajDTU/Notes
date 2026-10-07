@@ -126,11 +126,22 @@ tbody tr:nth-child(even) td{background:rgba(124,92,255,.06)}
 a{color:#8fe9ff}
 ::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:linear-gradient(#7c5cff,#19d3ff);border-radius:8px}
 </style>
+<style id="home-v14">
+.homeLink{justify-self:end;display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:10px;font-size:13px;font-weight:800;text-decoration:none;white-space:nowrap;
+  color:#fff!important;background:linear-gradient(135deg,rgba(124,92,255,.55),rgba(25,211,255,.3));border:1px solid rgba(138,150,255,.4)}
+nav#side a.backhome,.side a.backhome{display:block;margin:0 0 10px;padding:10px 12px;border-radius:10px;font-weight:800;color:#fff!important;
+  background:linear-gradient(90deg,rgba(124,92,255,.45),rgba(25,211,255,.2));border:1px solid rgba(138,150,255,.4)}
+#homeFab{display:none}
+@media (max-width:860px){
+  #homeFab{display:flex;align-items:center;justify-content:center;position:fixed;left:64px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:16;width:42px;height:42px;border-radius:50%;
+    text-decoration:none;font-size:19px;background:rgba(22,27,68,.95);border:1px solid rgba(138,150,255,.45);box-shadow:0 8px 22px rgba(3,4,18,.6)}
+}
+</style>
 </head>
 <body>
 <header class="top"><a href="index.html">← Study Hub</a><h1>Discrete Mathematics — GATE CSE 2027</h1></header>
 <div class="wrap">
-<aside class="side"><a href="index.html">← Back to Study Hub</a><a href="#scope">Syllabus & Scope</a><a href="#logic">Logic</a><a href="#sets">Sets, Relations & Functions</a><a href="#orders">Partial Orders & Lattices</a><a href="#algebra">Monoids & Groups</a><a href="#comb">Combinatorics</a><a href="#rec">Recurrences & Generating Functions</a><a href="#graphs">Graph Theory</a><a href="#advanced">High-Yield Extensions & Methods</a><a href="#quiz">Practice Quiz — 90 Qs</a><a href="#pyq">GATE-Level Solved Problems</a><a href="#playbook">Problem → Method Guide</a><a href="#rapid">Last-Minute Revision</a><a href="#resources">Standard Resources</a></aside>
+<aside class="side"><a class="backhome" href="index.html">← Back to Study Hub</a><a href="#scope">Syllabus & Scope</a><a href="#logic">Logic</a><a href="#sets">Sets, Relations & Functions</a><a href="#orders">Partial Orders & Lattices</a><a href="#algebra">Monoids & Groups</a><a href="#comb">Combinatorics</a><a href="#rec">Recurrences & Generating Functions</a><a href="#graphs">Graph Theory</a><a href="#advanced">High-Yield Extensions & Methods</a><a href="#quiz">Practice Quiz — 90 Qs</a><a href="#pyq">GATE-Level Solved Problems</a><a href="#playbook">Problem → Method Guide</a><a href="#rapid">Last-Minute Revision</a><a href="#resources">Standard Resources</a></aside>
 <main>
 <section class="hero"><h2>Discrete Mathematics</h2><div class="sub">Quick revision + standard problem-solving methods for GATE CSE 2027. Use this page before PYQs; it is not intended to replace PYQ practice.</div><div class="controls"><button class="btn primary" onclick="toggleRapid()">⚡ Last-Minute Revision</button><a class="btn" href="#playbook" style="text-decoration:none;color:inherit">🧭 Problem → Method Guide</a></div></section>
 <section id="scope" class="full"><h2>Syllabus & Scope</h2><div class="notice">For GATE 2027 CS, Discrete Mathematics covers <b>propositional and first-order logic; sets, relations, functions, partial orders and lattices; monoids and groups; graphs (connectivity, matching, colouring); and combinatorics (counting, recurrence relations, generating functions).</b> This page is organized around those official syllabus lines.</div><div class="notice" style="margin-top:10px">In the official syllabus, Discrete Mathematics is the first subsection of <b>Engineering Mathematics</b>. This page is the single home for all detailed discrete-math notes; the <a href="em-gate-2027.html">Engineering Mathematics page</a> covers Linear Algebra, Calculus and Probability &amp; Statistics and links back here.</div></section>
@@ -1535,4 +1546,5 @@ document.querySelectorAll('.card p').forEach(function(p){
   var n=c.nextSibling; if(n&&n.nodeType===3&&/^\s*[.;,]\s*$/.test(n.textContent)) n.remove();
 });
 </script>
+<a id="homeFab" href="index.html" aria-label="Back to Study Hub">🏠</a>
 </body></html>

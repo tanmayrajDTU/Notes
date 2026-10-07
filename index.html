@@ -134,89 +134,151 @@ tbody tr:nth-child(even) td{background:rgba(124,92,255,.06)}
 a{color:#8fe9ff}
 ::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:linear-gradient(#7c5cff,#19d3ff);border-radius:8px}
 </style>
+<style id="index-v14">
+/* v14 index redesign */
+body{background:transparent!important}
+.hero{max-width:980px;margin:0 auto;padding:calc(34px + env(safe-area-inset-top,0px)) 20px 8px;text-align:center}
+.eyebrow{display:inline-block;padding:7px 14px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:#d9ccff;
+  background:rgba(124,92,255,.18);border:1px solid rgba(160,140,255,.4)}
+.hero h1{margin:16px 0 10px;font-size:clamp(44px,13vw,84px);line-height:1;font-weight:900;letter-spacing:-1.5px;
+  background:linear-gradient(95deg,#4ff0d0 0%,#8aa4ff 38%,#c98bff 66%,#ff7ab6 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 8px 30px rgba(124,92,255,.35))}
+.lead{max-width:640px;margin:0 auto 24px;color:var(--muted);font-size:15.5px;line-height:1.7}
+.lead b{color:#fff}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:640px;margin:0 auto 22px}
+@media(min-width:640px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stats div{padding:10px 6px;border-radius:16px;background:linear-gradient(150deg,rgba(40,46,104,.6),rgba(14,17,42,.85));border:1px solid rgba(138,150,255,.25);
+  box-shadow:0 10px 28px rgba(3,4,18,.45),inset 0 1px 0 rgba(255,255,255,.07)}
+.stats b{display:block;font-size:26px;font-weight:900;background:linear-gradient(90deg,#4ff0d0,#8aa4ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stats b{line-height:1.15;margin-bottom:2px}.stats span{display:block;line-height:1.2;font-size:11.5px;color:var(--muted);font-weight:700;letter-spacing:.3px}
+.search{display:flex;align-items:center;gap:10px;max-width:560px;margin:0 auto;padding:4px 16px;border-radius:16px;background:rgba(14,17,48,.85);
+  border:1px solid rgba(138,150,255,.35);box-shadow:0 8px 26px rgba(3,4,18,.45)}
+.search:focus-within{border-color:#19d3ff;box-shadow:0 0 0 4px rgba(25,211,255,.18)}
+.search input{flex:1;min-width:0;background:none;border:0;outline:0;color:var(--text);font-size:15px;padding:14px 0;-webkit-appearance:none}
+.search input::placeholder{color:#7d87b8}
+main{max-width:1060px!important;margin:0 auto;padding:18px 18px 56px!important}
+.grp{margin:34px 0 0}
+.grp-h{display:flex;align-items:center;gap:14px;margin:0 0 16px}
+.gi{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;font-size:22px;flex:none;
+  background:linear-gradient(135deg,rgba(124,92,255,.5),rgba(25,211,255,.3));border:1px solid rgba(160,150,255,.45)}
+.grp-h h2{margin:0;font-size:20px;background:linear-gradient(90deg,#fff,#c9a8ff);-webkit-background-clip:text;background-clip:text;color:transparent;border:0!important;border-image:none!important}
+.grp-h p{margin:2px 0 0;font-size:13px;color:var(--muted)}
+.subs{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:640px){.subs{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:960px){.subs{grid-template-columns:repeat(3,1fr)}}
+a.sub{position:relative;display:flex;flex-direction:column;padding:20px 20px 16px;border-radius:20px;text-decoration:none;color:var(--text)!important;overflow:hidden;
+  background:linear-gradient(155deg,rgba(34,40,92,.7),rgba(12,15,40,.95));border:1px solid rgba(138,150,255,.22);
+  box-shadow:0 12px 32px rgba(3,4,18,.5),inset 0 1px 0 rgba(255,255,255,.06);transition:transform .18s,border-color .18s,box-shadow .18s}
+a.sub::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--c),transparent)}
+a.sub::after{content:"";position:absolute;right:-40px;top:-40px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--c) 38%,transparent),transparent 70%);pointer-events:none}
+a.sub:hover,a.sub:active{transform:translateY(-4px);border-color:var(--c);box-shadow:0 16px 40px rgba(3,4,18,.6),0 0 0 1px var(--c),0 0 30px color-mix(in srgb,var(--c) 30%,transparent)}
+.ico{position:relative;z-index:1;display:grid;place-items:center;width:52px;height:52px;margin:0 0 14px;border-radius:16px;font-size:27px;
+  background:color-mix(in srgb,var(--c) 18%,#10143a);border:1px solid color-mix(in srgb,var(--c) 55%,transparent);box-shadow:0 0 22px color-mix(in srgb,var(--c) 30%,transparent)}
+a.sub h3{position:relative;z-index:1;margin:0 0 6px;font-size:18px;line-height:1.3;color:#fff}
+a.sub p{position:relative;z-index:1;margin:0 0 14px;color:#aab3dc;font-size:13.5px;line-height:1.65;flex:1}
+.chips{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:7px;margin:0 0 14px}
+.chips span{padding:4px 10px;border-radius:999px;font-size:11.5px;font-weight:800;color:var(--c);background:color-mix(in srgb,var(--c) 14%,transparent);border:1px solid color-mix(in srgb,var(--c) 40%,transparent)}
+.open{position:relative;z-index:1;align-self:flex-end;font-size:13px;font-weight:800;color:var(--c)}
+.open i{display:inline-block;font-style:normal;transition:transform .18s}
+a.sub:hover .open i{transform:translateX(5px)}
+.none{text-align:center;color:var(--muted);margin:40px 0}
+footer{background:none!important;border-top:1px solid rgba(138,150,255,.18)!important;padding:22px 20px calc(22px + env(safe-area-inset-bottom,0px))!important}
+</style>
 </head>
 <body>
-<header>
-  <h1>🎓 GATE CSE 2027 <span>Study Hub</span></h1>
-  <p>Quick-revision notes for GATE CSE 2027 — high-yield facts, traps, formulas, worked numericals, and subject practice. Each subject also has a <b>⚡ Last-Minute Revision</b> mode.</p>
-</header>
-<main>
-<div class="grid">
-      <a class="card" href="ga-gate-2027.html">
-    <span class="icon">🧠</span>
-    <h2>General Aptitude</h2>
-    <p>Verbal aptitude (incl. critical reasoning), numerical computation (number system, mixtures, clocks &amp; calendars), data interpretation, mensuration/geometry/probability, analytical aptitude (seating, truth-tellers), spatial aptitude (counting, dice).</p>
-    <div class="tags"><span>6 areas</span><span>99 Qs</span><span>27 solved</span></div>
-  </a>
-      <a class="card" href="em-gate-2027.html">
-    <span class="icon">📐</span>
-    <h2>Engineering Mathematics</h2>
-    <p>Linear algebra, calculus, probability &amp; statistics, with 🟢 core / 🟡 extension tagging. Discrete mathematics is its own module (linked from the page).</p>
-    <div class="tags"><span>3 areas</span><span>58 Qs</span><span>18 solved</span></div>
-  </a>
-<a class="card" href="discrete-math-gate-2027.html">
-    <span class="icon">∑</span>
-    <h2>Discrete Mathematics</h2>
-    <p>Logic, sets &amp; relations, functions, partial orders &amp; lattices, algebraic structures, combinatorics, recurrence relations, generating functions and graph theory.</p>
-    <div class="tags"><span>8 topics</span><span>90 Qs</span><span>35 solved</span></div>
-  </a>
-  <a class="card" href="dl-gate-2027.html">
-    <span class="icon">🔌</span>
-    <h2>Digital Logic</h2>
-    <p>Number systems &amp; IEEE 754, Boolean algebra, K-maps, adders/MUX/decoders, flip-flops, counters, state machines, ROM/PLA, BCD &amp; Hamming codes.</p>
-    <div class="tags"><span>9 topics</span><span>68 Qs</span><span>18 solved</span></div>
-  </a>
-
-  <a class="card" href="coa-gate-2027.html">
-    <span class="icon">⚙️</span>
-    <h2>Computer Organization &amp; Architecture</h2>
-    <p>Number systems, instruction sets &amp; addressing modes, ALU, control unit, memory hierarchy &amp; cache, I/O, pipelining.</p>
-    <div class="tags"><span>7 topics</span><span>58 Qs</span><span>19 solved</span></div>
-  </a>
-  <a class="card" href="pds-gate-2027.html">
-    <span class="icon">💻</span>
-    <h2>Programming &amp; Data Structures</h2>
-    <p>C semantics, pointers &amp; memory, recursion, stacks &amp; queues, linked lists, trees/BST/AVL, heaps, hashing and graph representation.</p>
-    <div class="tags"><span>7 topics</span><span>58 Qs</span><span>17 solved</span></div>
-  </a>
-  <a class="card" href="alg-gate-2027.html">
-    <span class="icon">⚙️</span>
-    <h2>Algorithms</h2>
-    <p>Asymptotics &amp; recurrences, sorting &amp; searching, divide &amp; conquer, greedy, dynamic programming, graph algorithms, amortized analysis and NP-completeness.</p>
-    <div class="tags"><span>7 topics</span><span>58 Qs</span><span>18 solved</span></div>
-  </a>
-  <a class="card" href="os-gate-2027.html">
-    <span class="icon">🖥️</span>
-    <h2>Operating Systems</h2>
-    <p>Processes &amp; threads, CPU scheduling (HRRN, MLFQ), synchronization &amp; IPC, deadlocks, memory &amp; virtual memory (Clock, buddy, inverted tables), file systems, disk &amp; I/O (DMA, spooling).</p>
-    <div class="tags"><span>7 topics</span><span>75 Qs</span><span>24 solved</span></div>
-  </a>
-  <a class="card" href="toc-gate-2027.html">
-    <span class="icon">🔤</span>
-    <h2>Theory of Computation</h2>
-    <p>Finite automata, regular expressions, context-free grammars, pushdown automata, pumping lemma, Turing machines.</p>
-    <div class="tags"><span>6 topics</span><span>80 Qs</span><span>19 solved</span></div>
-  </a>
-  <a class="card" href="cn-gate-2027.html">
-    <span class="icon">🌐</span>
-    <h2>Computer Networks</h2>
-    <p>Layering, switching &amp; performance, data link &amp; MAC, routing (RIP/OSPF/BGP), IPv4 &amp; ARP/DHCP/ICMP, TCP, DNS, HTTP &amp; email.</p>
-    <div class="tags"><span>7 topics</span><span>90 Qs</span><span>23 solved</span></div>
-  </a>
-  <a class="card" href="dbms-gate-2027.html">
-    <span class="icon">🗄️</span>
-    <h2>DBMS</h2>
-    <p>ER model, relational algebra &amp; tuple calculus, SQL, integrity constraints &amp; normal forms, indexing (B/B+ trees), transactions &amp; concurrency control.</p>
-    <div class="tags"><span>6 topics</span><span>82 Qs</span><span>23 solved</span></div>
-  </a>
-  <a class="card" href="cd-gate-2027.html">
-    <span class="icon">🛠️</span>
-    <h2>Compiler Design</h2>
-    <p>Phases &amp; lexical analysis, LL(1) parsing, LR/SLR/LALR/CLR, syntax-directed translation, runtime environments, intermediate code, optimisation &amp; code generation.</p>
-    <div class="tags"><span>7 topics</span><span>56 Qs</span><span>16 solved</span></div>
-  </a>
+<div class="hero">
+  <span class="eyebrow">✦ GATE CSE 2027 · Revision Companion</span>
+  <h1>Study Hub</h1>
+  <p class="lead">Quick-revision notes for GATE CSE 2027 — high-yield facts, traps, formulas, worked numericals, and subject practice. Each subject also has a <b>⚡ Last-Minute Revision</b> mode.</p>
+  <div class="stats">
+    <div><b>12</b><span>Subjects</span></div>
+    <div><b>872</b><span>Practice Qs</span></div>
+    <div><b>257</b><span>Solved problems</span></div>
+    <div><b>⚡</b><span>Last-Minute mode</span></div>
+  </div>
+  <label class="search"><span>🔍</span><input id="q" type="search" placeholder="Search — e.g. deadlock, SQL, LR" autocomplete="off"></label>
 </div>
+<main>
+<section class="grp"><div class="grp-h"><span class="gi">📊</span><div><h2>Aptitude & Mathematics</h2><p>Reasoning, calculus, algebra, logic and counting</p></div></div><div class="subs"><a class="sub" href="ga-gate-2027.html" style="--c:#ff7ab6" data-name="general aptitude verbal aptitude (incl. critical reasoning), numerical computation (number system, mixtures, clocks & calendars), data interpretation, mensuration/geometry/probability, analytical aptitude (seating, truth-tellers), spatial aptitude (counting, dice).">
+  <span class="ico">🧠</span>
+  <h3>General Aptitude</h3>
+  <p>Verbal aptitude (incl. critical reasoning), numerical computation (number system, mixtures, clocks &amp; calendars), data interpretation, mensuration/geometry/probability, analytical aptitude (seating, truth-tellers), spatial aptitude (counting, dice).</p>
+  <div class="chips"><span>6 areas</span><span>99 Qs</span><span>27 solved</span></div>
+  <span class="open">Open <i>→</i></span>
+</a><a class="sub" href="em-gate-2027.html" style="--c:#ffb454" data-name="engineering mathematics linear algebra, calculus, probability & statistics, with 🟢 core / 🟡 extension tagging. discrete mathematics is its own module (linked from the page).">
+  <span class="ico">📐</span>
+  <h3>Engineering Mathematics</h3>
+  <p>Linear algebra, calculus, probability &amp; statistics, with 🟢 core / 🟡 extension tagging. Discrete mathematics is its own module (linked from the page).</p>
+  <div class="chips"><span>3 areas</span><span>58 Qs</span><span>18 solved</span></div>
+  <span class="open">Open <i>→</i></span>
+</a><a class="sub" href="discrete-math-gate-2027.html" style="--c:#c9a8ff" data-name="discrete mathematics logic, sets & relations, functions, partial orders & lattices, algebraic structures, combinatorics, recurrence relations, generating functions and graph theory.">
+  <span class="ico">∑</span>
+  <h3>Discrete Mathematics</h3>
+  <p>Logic, sets &amp; relations, functions, partial orders &amp; lattices, algebraic structures, combinatorics, recurrence relations, generating functions and graph theory.</p>
+  <div class="chips"><span>8 topics</span><span>90 Qs</span><span>35 solved</span></div>
+  <span class="open">Open <i>→</i></span>
+</a></div></section><section class="grp"><div class="grp-h"><span class="gi">🧩</span><div><h2>Hardware & Programming</h2><p>Circuits, architecture, data structures and algorithms</p></div></div><div class="subs"><a class="sub" href="dl-gate-2027.html" style="--c:#4ff0d0" data-name="digital logic number systems & ieee 754, boolean algebra, k-maps, adders/mux/decoders, flip-flops, counters, state machines, rom/pla, bcd & hamming codes.">
+  <span class="ico">🔌</span>
+  <h3>Digital Logic</h3>
+  <p>Number systems &amp; IEEE 754, Boolean algebra, K-maps, adders/MUX/decoders, flip-flops, counters, state machines, ROM/PLA, BCD &amp; Hamming codes.</p>
+  <div class="chips"><span>9 topics</span><span>68 Qs</span><span>18 solved</span></div>
+  <span class="open">Open <i>→</i></span>
+</a><a class="sub" href="coa-gate-2027.html" style="--c:#6ea8ff" data-name="computer organization & architecture number systems, instruction sets & addressing modes, alu, control unit, memory hierarchy & cache, i/o, pipelining.">
+  <span class="ico">⚙️</span>
+  <h3>Computer Organization &amp; Architecture</h3>
+  <p>Number systems, instruction sets &amp; addressing modes, ALU, control unit, memory hierarchy &amp; cache, I/O, pipelining.</p>
+  <div class="chips"><span>7 topics</span><span>58 Qs</span><span>19 solved</span></div>
+  <span class="open">Open <i>→</i></span>
+</a><a class="sub" href="pds-gate-2027.html" style="--c:#7af0ae" data-name="programming & data structures c semantics, pointers & memory, recursion, stacks & queues, linked lists, trees/bst/avl, heaps, hashing and graph representation.">
+  <span class="ico">💻</span>
+  <h3>Programming &amp; Data Structures</h3>
+  <p>C semantics, pointers &amp; memory, recursion, stacks &amp; queues, linked lists, trees/BST/AVL, heaps, hashing and graph representation.</p>
+  <div class="chips"><span>7 topics</span><span>58 Qs</span><span>17 solved</span></div>
+  <span class="open">Open <i>→</i></span>
+</a><a class="sub" href="alg-gate-2027.html" style="--c:#ffe08a" data-name="algorithms asymptotics & recurrences, sorting & searching, divide & conquer, greedy, dynamic programming, graph algorithms, amortized analysis and np-completeness.">
+  <span class="ico">⚙️</span>
+  <h3>Algorithms</h3>
+  <p>Asymptotics &amp; recurrences, sorting &amp; searching, divide &amp; conquer, greedy, dynamic programming, graph algorithms, amortized analysis and NP-completeness.</p>
+  <div class="chips"><span>7 topics</span><span>58 Qs</span><span>18 solved</span></div>
+  <span class="open">Open <i>→</i></span>
+</a></div></section><section class="grp"><div class="grp-h"><span class="gi">🛰️</span><div><h2>Systems & Theory</h2><p>Operating systems, automata, networks, databases and compilers</p></div></div><div class="subs"><a class="sub" href="os-gate-2027.html" style="--c:#19d3ff" data-name="operating systems processes & threads, cpu scheduling (hrrn, mlfq), synchronization & ipc, deadlocks, memory & virtual memory (clock, buddy, inverted tables), file systems, disk & i/o (dma, spooling).">
+  <span class="ico">🖥️</span>
+  <h3>Operating Systems</h3>
+  <p>Processes &amp; threads, CPU scheduling (HRRN, MLFQ), synchronization &amp; IPC, deadlocks, memory &amp; virtual memory (Clock, buddy, inverted tables), file systems, disk &amp; I/O (DMA, spooling).</p>
+  <div class="chips"><span>7 topics</span><span>75 Qs</span><span>24 solved</span></div>
+  <span class="open">Open <i>→</i></span>
+</a><a class="sub" href="toc-gate-2027.html" style="--c:#ff8f6b" data-name="theory of computation finite automata, regular expressions, context-free grammars, pushdown automata, pumping lemma, turing machines.">
+  <span class="ico">🔤</span>
+  <h3>Theory of Computation</h3>
+  <p>Finite automata, regular expressions, context-free grammars, pushdown automata, pumping lemma, Turing machines.</p>
+  <div class="chips"><span>6 topics</span><span>80 Qs</span><span>19 solved</span></div>
+  <span class="open">Open <i>→</i></span>
+</a><a class="sub" href="cn-gate-2027.html" style="--c:#5ee0ff" data-name="computer networks layering, switching & performance, data link & mac, routing (rip/ospf/bgp), ipv4 & arp/dhcp/icmp, tcp, dns, http & email.">
+  <span class="ico">🌐</span>
+  <h3>Computer Networks</h3>
+  <p>Layering, switching &amp; performance, data link &amp; MAC, routing (RIP/OSPF/BGP), IPv4 &amp; ARP/DHCP/ICMP, TCP, DNS, HTTP &amp; email.</p>
+  <div class="chips"><span>7 topics</span><span>90 Qs</span><span>23 solved</span></div>
+  <span class="open">Open <i>→</i></span>
+</a><a class="sub" href="dbms-gate-2027.html" style="--c:#b58cff" data-name="dbms er model, relational algebra & tuple calculus, sql, integrity constraints & normal forms, indexing (b/b+ trees), transactions & concurrency control.">
+  <span class="ico">🗄️</span>
+  <h3>DBMS</h3>
+  <p>ER model, relational algebra &amp; tuple calculus, SQL, integrity constraints &amp; normal forms, indexing (B/B+ trees), transactions &amp; concurrency control.</p>
+  <div class="chips"><span>6 topics</span><span>82 Qs</span><span>23 solved</span></div>
+  <span class="open">Open <i>→</i></span>
+</a><a class="sub" href="cd-gate-2027.html" style="--c:#ff6f91" data-name="compiler design phases & lexical analysis, ll(1) parsing, lr/slr/lalr/clr, syntax-directed translation, runtime environments, intermediate code, optimisation & code generation.">
+  <span class="ico">🛠️</span>
+  <h3>Compiler Design</h3>
+  <p>Phases &amp; lexical analysis, LL(1) parsing, LR/SLR/LALR/CLR, syntax-directed translation, runtime environments, intermediate code, optimisation &amp; code generation.</p>
+  <div class="chips"><span>7 topics</span><span>56 Qs</span><span>16 solved</span></div>
+  <span class="open">Open <i>→</i></span>
+</a></div></section>
+<p id="none" class="none" hidden>No subject matches that search.</p>
 </main>
 <footer>Keep all twelve subject files in the same folder so these links work — open index.html to start.</footer>
+<script>
+(function(){var q=document.getElementById('q'),subs=[].slice.call(document.querySelectorAll('.sub')),grps=[].slice.call(document.querySelectorAll('.grp')),none=document.getElementById('none');
+q.addEventListener('input',function(){var v=q.value.trim().toLowerCase(),any=0;subs.forEach(function(a){var ok=!v||a.dataset.name.indexOf(v)>-1;a.style.display=ok?'':'none';if(ok)any++;});
+grps.forEach(function(g){g.style.display=g.querySelector('.sub:not([style*="none"])')?'':'none';});none.hidden=!!any;});})();
+</script>
 </body>
 </html>
