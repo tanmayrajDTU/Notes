@@ -137,11 +137,21 @@ nav#side a.backhome,.side a.backhome{display:block;margin:0 0 10px;padding:10px 
     text-decoration:none;font-size:19px;background:rgba(22,27,68,.95);border:1px solid rgba(138,150,255,.45);box-shadow:0 8px 22px rgba(3,4,18,.6)}
 }
 </style>
+<!-- pwa:start -->
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#070916">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="GATE 2027">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="favicon-64.png">
+<!-- pwa:end -->
 </head>
 <body>
 <header class="top"><a href="index.html">← Study Hub</a><h1>Discrete Mathematics — GATE CSE 2027</h1></header>
 <div class="wrap">
-<aside class="side"><a class="backhome" href="index.html">← Back to Study Hub</a><a href="#scope">Syllabus & Scope</a><a href="#logic">Logic</a><a href="#sets">Sets, Relations & Functions</a><a href="#orders">Partial Orders & Lattices</a><a href="#algebra">Monoids & Groups</a><a href="#comb">Combinatorics</a><a href="#rec">Recurrences & Generating Functions</a><a href="#graphs">Graph Theory</a><a href="#advanced">High-Yield Extensions & Methods</a><a href="#quiz">Practice Quiz — 90 Qs</a><a href="#pyq">GATE-Level Solved Problems</a><a href="#playbook">Problem → Method Guide</a><a href="#rapid">Last-Minute Revision</a><a href="#resources">Standard Resources</a></aside>
+<aside class="side"><a class="backhome" href="index.html">← Back to Study Hub</a><a class="gt-sidelink" href="cheatsheet-gate-2027.html#discrete-math">📄 Formula cheat sheet</a><a class="gt-sidelink" href="mock-gate-2027.html">🎯 Full mock exam</a><a href="#scope">Syllabus & Scope</a><a href="#logic">Logic</a><a href="#sets">Sets, Relations & Functions</a><a href="#orders">Partial Orders & Lattices</a><a href="#algebra">Monoids & Groups</a><a href="#comb">Combinatorics</a><a href="#rec">Recurrences & Generating Functions</a><a href="#graphs">Graph Theory</a><a href="#advanced">High-Yield Extensions & Methods</a><a href="#quiz">Practice Quiz — 90 Qs</a><a href="#pyq">GATE-Level Solved Problems</a><a href="#playbook">Problem → Method Guide</a><a href="#rapid">Last-Minute Revision</a><a href="#resources">Standard Resources</a></aside>
 <main>
 <section class="hero"><h2>Discrete Mathematics</h2><div class="sub">Quick revision + standard problem-solving methods for GATE CSE 2027. Use this page before PYQs; it is not intended to replace PYQ practice.</div><div class="controls"><button class="btn primary" onclick="toggleRapid()">⚡ Last-Minute Revision</button><a class="btn" href="#playbook" style="text-decoration:none;color:inherit">🧭 Problem → Method Guide</a></div></section>
 <section id="scope" class="full"><h2>Syllabus & Scope</h2><div class="notice">For GATE 2027 CS, Discrete Mathematics covers <b>propositional and first-order logic; sets, relations, functions, partial orders and lattices; monoids and groups; graphs (connectivity, matching, colouring); and combinatorics (counting, recurrence relations, generating functions).</b> This page is organized around those official syllabus lines.</div><div class="notice" style="margin-top:10px">In the official syllabus, Discrete Mathematics is the first subsection of <b>Engineering Mathematics</b>. This page is the single home for all detailed discrete-math notes; the <a href="em-gate-2027.html">Engineering Mathematics page</a> covers Linear Algebra, Calculus and Probability &amp; Statistics and links back here.</div></section>
@@ -1547,4 +1557,11 @@ document.querySelectorAll('.card p').forEach(function(p){
 });
 </script>
 <a id="homeFab" href="index.html" aria-label="Back to Study Hub">🏠</a>
+<!-- gatetest:start -->
+<script src="gate-test.js"></script>
+<script>(function(){var a=document.getElementById("qtopics");if(a&&window.GateTest)GateTest.mountLauncher("discrete-math",a);})();</script>
+<!-- gatetest:end -->
+<!-- pwa-reg:start -->
+<script>if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost'||location.hostname==='127.0.0.1')){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
+<!-- pwa-reg:end -->
 </body></html>

@@ -134,6 +134,17 @@ tbody tr:nth-child(even) td{background:rgba(124,92,255,.06)}
 a{color:#8fe9ff}
 ::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:linear-gradient(#7c5cff,#19d3ff);border-radius:8px}
 </style>
+<style id="tools-css">
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:0 0 26px}
+.tool{display:flex;flex-direction:column;gap:4px;background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:16px 18px;color:var(--text);text-decoration:none;position:relative}
+a.tool:hover{border-color:var(--accent);transform:translateY(-2px);transition:.15s}
+.tool .ti{font-size:26px;line-height:1}
+.tool b{font-size:16px;color:var(--accent2)}
+.tool small{color:var(--muted);font-size:12.5px;line-height:1.45}
+.tool button{align-self:flex-start;margin-top:8px;border:1px solid var(--accent);background:var(--accent);color:#062019;font-weight:800;font-size:13px;border-radius:10px;padding:8px 14px;cursor:pointer;font-family:inherit}
+.tool .ok{color:#7ee787}
+</style>
+
 <style id="index-v14">
 /* v14 index redesign */
 body{background:transparent!important}
@@ -184,6 +195,16 @@ a.sub:hover .open i{transform:translateX(5px)}
 .none{text-align:center;color:var(--muted);margin:40px 0}
 footer{background:none!important;border-top:1px solid rgba(138,150,255,.18)!important;padding:22px 20px calc(22px + env(safe-area-inset-bottom,0px))!important}
 </style>
+<!-- pwa:start -->
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#070916">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="GATE 2027">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="favicon-64.png">
+<!-- pwa:end -->
 </head>
 <body>
 <div class="hero">
@@ -192,13 +213,49 @@ footer{background:none!important;border-top:1px solid rgba(138,150,255,.18)!impo
   <p class="lead">Quick-revision notes for GATE CSE 2027 — high-yield facts, traps, formulas, worked numericals, and subject practice. Each subject also has a <b>⚡ Last-Minute Revision</b> mode.</p>
   <div class="stats">
     <div><b>12</b><span>Subjects</span></div>
-    <div><b>872</b><span>Practice Qs</span></div>
+    <div><b>1,194</b><span>Questions incl. 289 NAT</span></div>
     <div><b>257</b><span>Solved problems</span></div>
     <div><b>⚡</b><span>Last-Minute mode</span></div>
   </div>
   <label class="search"><span>🔍</span><input id="q" type="search" placeholder="Search — e.g. deadlock, SQL, LR" autocomplete="off"></label>
 </div>
 <main>
+<!-- tools:start -->
+<section class="tools" aria-label="Exam tools and offline install">
+  <a class="tool" href="mock-gate-2027.html"><span class="ti">🎯</span><b>Full mock exam</b><small>65 questions · 100 marks · 3 hours. MCQ negative marking, MSQ and numerical-answer (NAT) questions, full result analysis.</small></a>
+  <a class="tool" href="cheatsheet-gate-2027.html"><span class="ti">📄</span><b>Formula &amp; rule cheat sheets</b><small>One or two printable pages per subject, plus ready-made PDFs.</small></a>
+  <div class="tool" id="pwa"><span class="ti">📲</span><b id="pwaT">Install &amp; use offline</b><small id="pwaS">Checking…</small><button id="pwaB" type="button" hidden>Install app</button></div>
+</section>
+<script>
+(function(){
+  var T=document.getElementById('pwaT'),S=document.getElementById('pwaS'),B=document.getElementById('pwaB'),deferred=null;
+  var standalone=(window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||navigator.standalone===true;
+  var ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  var secure=location.protocol==='https:'||location.hostname==='localhost'||location.hostname==='127.0.0.1';
+  function state(msg,ok){S.innerHTML=msg; if(ok) T.innerHTML=(standalone?'Installed &amp; offline':'Ready offline')+' <span class="ok">✓</span>';}
+  function hint(){
+    if(standalone) return 'Running as an installed app.';
+    if(ios) return 'On iPhone / iPad: tap <b>Share</b>, then <b>Add to Home Screen</b>.';
+    return 'Use your browser’s <b>Install app</b> / <b>Add to Home screen</b> option.';
+  }
+  if(!secure){ S.innerHTML='Offline install needs this site to be opened over <b>https</b> (for example from GitHub Pages or Netlify). It does not work when opened as a local file.'; return; }
+  if(!('serviceWorker' in navigator)){ S.textContent='This browser does not support offline install.'; return; }
+  window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();deferred=e;if(!standalone){B.hidden=false;}});
+  B.onclick=function(){if(!deferred)return;deferred.prompt();deferred.userChoice.finally(function(){deferred=null;B.hidden=true;});};
+  window.addEventListener('appinstalled',function(){B.hidden=true;standalone=true;check();});
+  var tries=0;
+  function check(){
+    caches.open('gate2027-v18').then(function(c){return c.match(new URL('__ready',document.baseURI).href);}).then(function(r){
+      if(r){ state('All pages, tests and cheat sheets are saved on this device and work without internet. '+hint(),true); }
+      else if(tries++<30){ S.textContent='Saving everything for offline use…'; setTimeout(check,1000); }
+      else { S.innerHTML='Offline copy is not complete yet. Stay online and reload once. '+hint(); }
+    }).catch(function(){S.textContent='Offline storage is unavailable in this browser mode.';});
+  }
+  S.textContent='Saving everything for offline use…'; setTimeout(check,600);
+})();
+</script>
+<!-- tools:end -->
+
 <section class="grp"><div class="grp-h"><span class="gi">📊</span><div><h2>Aptitude & Mathematics</h2><p>Reasoning, calculus, algebra, logic and counting</p></div></div><div class="subs"><a class="sub" href="ga-gate-2027.html" style="--c:#ff7ab6" data-name="general aptitude verbal aptitude (incl. critical reasoning), numerical computation (number system, mixtures, clocks & calendars), data interpretation, mensuration/geometry/probability, analytical aptitude (seating, truth-tellers), spatial aptitude (counting, dice).">
   <span class="ico">🧠</span>
   <h3>General Aptitude</h3>
@@ -280,5 +337,8 @@ footer{background:none!important;border-top:1px solid rgba(138,150,255,.18)!impo
 q.addEventListener('input',function(){var v=q.value.trim().toLowerCase(),any=0;subs.forEach(function(a){var ok=!v||a.dataset.name.indexOf(v)>-1;a.style.display=ok?'':'none';if(ok)any++;});
 grps.forEach(function(g){g.style.display=g.querySelector('.sub:not([style*="none"])')?'':'none';});none.hidden=!!any;});})();
 </script>
+<!-- pwa-reg:start -->
+<script>if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost'||location.hostname==='127.0.0.1')){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
+<!-- pwa-reg:end -->
 </body>
 </html>
